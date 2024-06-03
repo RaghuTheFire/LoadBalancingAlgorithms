@@ -52,8 +52,6 @@ This C++ program demonstrates the implementation of the Round Robin load balanci
 
 ## Implementation:
 # WeightedRoundRobin.cpp
-
-Explanation:
 This C++ program demonstrates the implementation of the Weighted Round Robin load balancing algorithm. Here's a breakdown of the code: 
 1. The `WeightedRoundRobin` class is implemented as a C++ class with private member variables `servers` (a vector of strings), `weights` (a vector of integers), `currentIndex` (an integer), and `currentWeight` (an integer).
 2. The constructor takes two vectors, `servers` and `weights`, and initializes the member variables accordingly.
