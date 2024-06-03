@@ -63,5 +63,35 @@ This C++ program demonstrates the implementation of the Weighted Round Robin loa
 8. An instance of the `WeightedRoundRobin` class is created with the server names and weights.
 9. A loop iterates 7 times, calling the `getNextServer` function and printing the selected server for each request.
 
+# Algorithm 3: Least Connections
+
+![Untitled](https://github.com/raghunihal/LoadBalancingAlgorithms/assets/67452178/f75dde16-4267-47ec-a64d-d243ae2ab71a)
+
+# How it Works:
+- Monitor the number of active connections on each server.
+- Assigns incoming requests to the server with the least number of active connections.
+
+# When to use:
+- When you want to distribute the load based on the current number of active connections.
+- When servers have similar processing capabilities but may have different levels of concurrent connections.
+
+# Benefits:
+- Balances load more dynamically based on current server load.
+- Helps prevent any server from becoming overloaded with a high number of active connections.
+
+# Drawbacks:
+- May not be optimal if servers have different processing capabilities.
+- Requires tracking active connections for each server.
+
+## Implementation:
+# LeastConnections.cpp
+This C++ program demonstrates the implementation of the LeastConnections load balancing algorithm. Here's a breakdown of the code: 
+The `LeastConnections` class has the following methods:
+- `LeastConnections(const std::vector<std::string>& serverList)`: Constructor that initializes the `servers` map with the given server names and sets their connection counts to 0.
+- `getNextServer()`: Finds the servers with the minimum number of connections, selects a random server from them, increments its connection count, and returns the server name.
+- `releaseConnection(const std::string& server)`: Decrements the connection count of the given server if it has at least one connection.
+
+In the `main` function, I have created a vector of server names, instantiated the `LeastConnections` object, and demonstrated its usage by getting the next server and releasing the connection for 6 requests.
 
 
+# Algorithm 4: Least Response Time
