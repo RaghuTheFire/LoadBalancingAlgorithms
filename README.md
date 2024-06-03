@@ -30,7 +30,7 @@ This C++ program demonstrates the implementation of the Round Robin load balanci
 4. In the `main()` function, a vector of server names is created, and a `RoundRobin` object `loadBalancer` is instantiated with this vector.
 5. A loop iterates 6 times, calling `loadBalancer.getNextServer()` on each iteration and printing the request number and the returned server name.
 
-Algorithm 2: Weighted Round Robin
+# Algorithm 2: Weighted Round Robin
 
 ![Untitled](https://github.com/raghunihal/LoadBalancingAlgorithms/assets/67452178/c778f84c-4bc0-4aac-a636-a7a87ca4d914)
 
