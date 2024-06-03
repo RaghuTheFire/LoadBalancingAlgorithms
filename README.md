@@ -23,19 +23,12 @@ Drawbacks:
 
 ## Implementation:
 # RoundRobin.cpp
-
 This C++ program demonstrates the implementation of the Round Robin load balancing algorithm. Here's a breakdown of the code: 
-1. The program includes the necessary header files: `iostream` for input/output operations, `vector` for using dynamic arrays, and `algorithm` for various algorithms.
-2. The `using namespace std;` line allows the program to use the standard namespace without explicitly prefixing it.
-3. The `roundRobin` function takes two vectors as input: `servers` (a vector of server IDs) and `requests` (a vector of request IDs).
-4. Inside the `roundRobin` function, the number of servers (`n`) and the number of requests (`m`) are calculated from the sizes of the respective vectors.
-5. The `currentServer` variable is initialized to 0, representing the index of the current server to handle the next request.
-6. A loop iterates over each request (`i` from 0 to `m-1`).
-7. Inside the loop, the program prints a message indicating which request is assigned to which server. For example, "Request 10 assigned to Server 1".
-8. After assigning the request, the `currentServer` variable is updated to move to the next server in a circular fashion. This is done by incrementing `currentServer` by 1 and taking the modulus with `n` (the number of servers). This ensures that the server index wraps around to 0 when it reaches the end of the server list.
-9. In the `main` function, two vectors are initialized: `servers` with server IDs (1, 2, 3, 4) and `requests` with request IDs (10, 20, 30, 40, 50).
-10. The `roundRobin` function is called, passing the `servers` and `requests` vectors as arguments.
-11. The program exits with a return code of 0. When the program is executed, it will output the assignment of requests to servers in a round-robin fashion. For example: ``` Request 10 assigned to Server 1 Request 20 assigned to Server 2 Request 30 assigned to Server 3 Request 40 assigned to Server 4 Request 50 assigned to Server 1 ``` This demonstrates how the Round Robin algorithm distributes requests evenly across multiple servers in a circular order, ensuring that no server is overloaded or underutilized.
+1. The `RoundRobin` class is defined with a private member `servers` (a vector of strings) to store the server names, and a private member `currentIndex` (an integer) to keep track of the current server index.
+2. The constructor `RoundRobin(const std::vector<std::string>& servers)` initializes the `servers` vector with the provided server names and sets `currentIndex` to -1.
+3. The `getNextServer()` method increments `currentIndex` by 1, wrapping around to 0 if it exceeds the size of the `servers` vector, and returns the server name at the new `currentIndex`.
+4. In the `main()` function, a vector of server names is created, and a `RoundRobin` object `loadBalancer` is instantiated with this vector.
+5. A loop iterates 6 times, calling `loadBalancer.getNextServer()` on each iteration and printing the request number and the returned server name.
 
 Algorithm 2: Weighted Round Robin
 
