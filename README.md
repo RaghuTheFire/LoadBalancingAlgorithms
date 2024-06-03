@@ -96,6 +96,8 @@ In the `main` function, I have created a vector of server names, instantiated th
 
 # Algorithm 4: Least Response Time
 
+![Untitled](https://github.com/raghunihal/LoadBalancingAlgorithms/assets/67452178/7d424764-e612-4de8-bc86-ac53eeaf45d2)
+
 How It Works:
 - Monitors the response time of each server.
 - Assigns incoming requests to the server with the fastest response time.
