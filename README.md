@@ -95,3 +95,19 @@ In the `main` function, I have created a vector of server names, instantiated th
 
 
 # Algorithm 4: Least Response Time
+
+How It Works:
+- Monitors the response time of each server.
+- Assigns incoming requests to the server with the fastest response time.
+
+When to Use:
+- When you have servers with varying response times and want to route requests to the fastest server.
+
+Benefits:
+- Minimizes overall latency by selecting the server with the fastest response time.
+- Can adapt dynamically to changes in server response times.
+- Helps improve the user experience by providing quick responses.
+
+Drawbacks:
+- Requires accurate measurement of server response times, which can be challenging in distributed systems.
+- May not consider other factors such as server load or connection count.
