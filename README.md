@@ -36,3 +36,25 @@ This C++ program demonstrates the implementation of the Round Robin load balanci
 9. In the `main` function, two vectors are initialized: `servers` with server IDs (1, 2, 3, 4) and `requests` with request IDs (10, 20, 30, 40, 50).
 10. The `roundRobin` function is called, passing the `servers` and `requests` vectors as arguments.
 11. The program exits with a return code of 0. When the program is executed, it will output the assignment of requests to servers in a round-robin fashion. For example: ``` Request 10 assigned to Server 1 Request 20 assigned to Server 2 Request 30 assigned to Server 3 Request 40 assigned to Server 4 Request 50 assigned to Server 1 ``` This demonstrates how the Round Robin algorithm distributes requests evenly across multiple servers in a circular order, ensuring that no server is overloaded or underutilized.
+
+Algorithm 2: Weighted Round Robin
+
+![Untitled](https://github.com/raghunihal/LoadBalancingAlgorithms/assets/67452178/c778f84c-4bc0-4aac-a636-a7a87ca4d914)
+
+# How it Works:
+- Each server is assigned a weight based on their processing power or available resources.
+- Servers with higher weights receive a proportionally larger share of incoming requests.
+
+# When to use:
+- When servers have different processing capabilities or available resources.
+- When you want to distribute the load based on the capacity of each server.
+
+# Benefits:
+- Balances load according to server capacity.
+- More efficient use of server resources.
+
+# Drawbacks:
+- Slightly more complex to implement than simple Round Robin.
+- Does not consider current server load or response time.
+
+# Implementation:
