@@ -131,3 +131,25 @@ This C++ code implements a simple load balancer that distributes requests to ser
 - The `get_next_server()` function is called to get the server with the least response time.
 - The server name is printed. - The `simulate_response_time()` function is called to simulate the response time.
 - The simulated response time is printed. - The `update_response_time()` function is called to update the response time for the selected server. The program simulates a load balancer that distributes requests to servers based on their response times. It selects the server with the least response time for each request and updates the response time for that server after simulating the response time.
+
+# Algorithm 5: IP Hash
+
+![Untitled](https://github.com/raghunihal/LoadBalancingAlgorithms/assets/67452178/8035d5ec-a744-4a7c-a53b-e9744a60762f)
+
+How It Works:
+- Calculates a hash value from the client’s IP address and uses it to determine the server to route the request.
+
+When to Use:
+- When you need session persistence, as requests from the same client are always directed to the same server.
+
+Benefits:
+- Simple to implement.
+- Useful for applications that require sticky sessions.
+
+Drawbacks:
+- Can lead to uneven load distribution if certain IP addresses generate more traffic than others.
+- Lacks flexibility if a server goes down, as the hash mapping may need to be reconfigured.
+
+## Implementation:
+# IPHash.cpp
+
