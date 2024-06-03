@@ -1,28 +1,33 @@
-
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <string>
 
-using namespace std;
-
-// Function to implement Round Robin load balancing algorithm
-void roundRobin(vector<int>& servers, vector<int>& requests) 
+class RoundRobin 
 {
-    int n = servers.size(); // Number of servers
-    int m = requests.size(); // Number of requests
-    int currentServer = 0; // Index of the current server
+private:
+    std::vector<std::string> servers;
+    int currentIndex;
 
-    for (int i = 0; i < m; i++) 
+public:
+    RoundRobin(const std::vector<std::string>& servers) : servers(servers), currentIndex(-1) {}
+
+    std::string getNextServer() 
     {
-        cout << "Request " << requests[i] << " assigned to Server " << servers[currentServer] << endl;
-        currentServer = (currentServer + 1) % n; // Move to the next server in a circular fashion
+        currentIndex = (currentIndex + 1) % servers.size();
+        return servers[currentIndex];
     }
-}
+};
 
 int main() 
 {
-    vector<int> servers = {1, 2, 3, 4}; // Server IDs
-    vector<int> requests = {10, 20, 30, 40, 50}; // Request IDs
-    roundRobin(servers, requests);
+    std::vector<std::string> servers = {"Server1", "Server2", "Server3"};
+    RoundRobin loadBalancer(servers);
+
+    for (int i = 0; i < 6; ++i) 
+    {
+        std::string server = loadBalancer.getNextServer();
+        std::cout << "Request " << i + 1 << " -> " << server << std::endl;
+    }
+
     return 0;
 }
