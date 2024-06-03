@@ -4,35 +4,38 @@
 
 class WeightedRoundRobin 
 {
-private:
-    std::vector<std::string> servers;
-    std::vector<int> weights;
-    int current_index;
-    int current_weight;
-
-public:
-    WeightedRoundRobin(const std::vector<std::string>& servers, const std::vector<int>& weights)
-        : servers(servers), weights(weights), current_index(-1), current_weight(0) {}
-
-    std::string get_next_server() 
-    {
-        while (true) 
+    private:
+        std::vector<std::string> servers;
+        std::vector<int> weights;
+        int current_index;
+        int current_weight;
+    
+    public:
+        WeightedRoundRobin(const std::vector<std::string>& servers, const std::vector<int>& weights)
+            : servers(servers), weights(weights), current_index(-1), current_weight(0) 
         {
-            current_index = (current_index + 1) % servers.size();
-            if (current_index == 0) 
+            
+        }
+    
+        std::string get_next_server() 
+        {
+            while (true) 
             {
-                current_weight--;
-                if (current_weight <= 0) 
+                current_index = (current_index + 1) % servers.size();
+                if (current_index == 0) 
                 {
-                    current_weight = *std::max_element(weights.begin(), weights.end());
+                    current_weight--;
+                    if (current_weight <= 0) 
+                    {
+                        current_weight = *std::max_element(weights.begin(), weights.end());
+                    }
+                }
+                if (weights[current_index] >= current_weight) 
+                {
+                    return servers[current_index];
                 }
             }
-            if (weights[current_index] >= current_weight) 
-            {
-                return servers[current_index];
-            }
         }
-    }
 };
 
 int main() 
