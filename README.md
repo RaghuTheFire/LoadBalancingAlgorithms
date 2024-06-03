@@ -152,4 +152,10 @@ Drawbacks:
 
 ## Implementation:
 # IPHash.cpp
-
+This C++ code implements a IP Hash load balancer using the MD5 hash function and IP addresses of clients. Here's a breakdown of the code: 
+1. The `md5` function takes a string as input and returns its MD5 hash value as a hexadecimal string. It uses the OpenSSL library's `MD5` function to compute the hash.
+2. The `IPHash` class is responsible for load balancing. It has a constructor that takes a vector of server names as input and stores them in the `servers` member variable.
+3. The `get_next_server` method of the `IPHash` class takes a client IP address as input, computes its MD5 hash, and uses the hash value to determine the index of the server to be assigned to that client. The index is calculated by converting the hash value to an unsigned long long integer and taking its modulus with the number of servers.
+4. In the `main` function, a vector of server names is created, and an instance of the `IPHash` class is initialized with this vector.
+5. A vector of client IP addresses is also created.
+6. For each client IP address, the `get_next_server` method of the `IPHash` instance is called, and the assigned server name is printed along with the client IP address. The purpose of this code is to demonstrate a simple load balancing technique where clients are assigned to servers based on their IP addresses. The MD5 hash function is used to ensure a consistent mapping of IP addresses to servers, while the modulus operation ensures that the servers are assigned clients in a round-robin fashion. This implementation assumes that the number of servers is fixed and known in advance. In a real-world scenario, the list of servers might be dynamic, and additional factors like server load and health might need to be considered for more efficient load balancing.
