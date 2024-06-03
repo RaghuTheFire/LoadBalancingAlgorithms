@@ -50,4 +50,20 @@ This C++ program demonstrates the implementation of the Round Robin load balanci
 - Slightly more complex to implement than simple Round Robin.
 - Does not consider current server load or response time.
 
-# Implementation:
+## Implementation:
+# WeightedRoundRobin.cpp
+
+Explanation:
+This C++ program demonstrates the implementation of the Weighted Round Robin load balancing algorithm. Here's a breakdown of the code: 
+1. The `WeightedRoundRobin` class is implemented as a C++ class with private member variables `servers` (a vector of strings), `weights` (a vector of integers), `currentIndex` (an integer), and `currentWeight` (an integer).
+2. The constructor takes two vectors, `servers` and `weights`, and initializes the member variables accordingly.
+3. The `getNextServer` function is the main logic of the class. It uses a loop to iterate through the servers based on their weights.
+4. Inside the loop, the `currentIndex` is incremented and wrapped around if it reaches the end of the `servers` vector.
+5. If the `currentIndex` is 0, it means a new round of server selection has started. In this case, the `currentWeight` is decremented, and if it becomes 0 or negative, it is reset to the maximum weight among all servers.
+6. If the weight of the current server is greater than or equal to the `currentWeight`, that server is returned.
+7. In the `main` function, an example usage is provided. A vector of server names and a vector of weights are created.
+8. An instance of the `WeightedRoundRobin` class is created with the server names and weights.
+9. A loop iterates 7 times, calling the `getNextServer` function and printing the selected server for each request.
+
+
+
