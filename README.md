@@ -116,3 +116,18 @@ Drawbacks:
 
 ## Implementation:
 # LeastResponseTime.cpp
+
+This C++ code implements a simple load balancer that distributes requests to servers based on their response times. The load balancer selects the server with the least response time for each incoming request. Here's a breakdown of the code: 
+1. The `LeastResponseTime` class is defined, which has two private member variables: `servers` (a vector of server names) and `response_times` (a vector of corresponding response times).
+2. The constructor of `LeastResponseTime` takes a vector of server names and initializes the `response_times` vector with zeros.
+3. The `get_next_server()` function finds the server with the minimum response time and returns its name.
+4. The `update_response_time()` function updates the response time for a given server.
+5. The `simulate_response_time()` function simulates a server's response time by introducing a random delay between 0.1 and 1.0 seconds.
+6. In the `main()` function:
+- The random number generator is seeded with the current time
+- A vector of server names is created: `{"Server1", "Server2", "Server3"}`.
+- An instance of `LeastResponseTime` is created with the server names.
+- A loop runs for 6 iterations:
+- The `get_next_server()` function is called to get the server with the least response time.
+- The server name is printed. - The `simulate_response_time()` function is called to simulate the response time.
+- The simulated response time is printed. - The `update_response_time()` function is called to update the response time for the selected server. The program simulates a load balancer that distributes requests to servers based on their response times. It selects the server with the least response time for each request and updates the response time for that server after simulating the response time.
